@@ -1,0 +1,975 @@
+Shift 
+
+import UIKit
+import Darwin
+
+
+Outlets
+Actions
+AlertController
+
+—>This three topic is perform in storyboard
+
+//Variable
+var int: Int = 27
+print(int)
+
+var double: Double = 8.5
+
+var string: String = "Bhargav Vasani"
+
+var choice: Bool = true
+
+print("your name is",string)
+print("\(string) has pass with \(double) CGPA.")
+
+————————————————————————————
+
+//Constant
+let const: Int = 27
+print(const)
+
+————————————————————————————
+
+//if condition (max from given 3 digit)
+var a = 12
+var b = 23
+var c = 44
+
+if(a>b && a>c)
+{
+    print("\(a) is grater then \(b) and \(c)")
+}
+else if(b>a && b>c)
+{
+    print("\(b) is grater then \(a) and \(c)")
+}
+else
+{
+    print("\(c) is grater then \(a) and \(b)")
+}
+
+————————————————————————————
+
+//Login
+var username = "admin"
+var password = "admin@123"
+if(username == "admin" && password == "admin@123")
+{
+    print("login Successfully...")
+}
+
+————————————————————————————
+
+//Switch case
+var x = 12
+var y = 15
+var apply = "Add"
+switch(apply)
+{
+case "Add": print(x+y)
+case "Sub": print(x-y)
+case "Mul": print(x*y)
+case "Div": print(x/y)
+default: print("Invalid Entry...")
+}
+
+————————————————————————————
+
+//Array
+var arr = ["bkv","optical","fiber"]
+for i in arr{
+    print(i)
+}
+
+————————————————————————————
+
+//update value
+var ar:[String] = ["bkv","optical","fiber"]
+ar[1]="change"
+for i in ar{
+    print(i)
+}
+
+————————————————————————————
+
+//count
+var array = ["bkv","optical","fiber"]
+for i in 0..<array.count {
+    print(array[i])
+}
+
+————————————————————————————
+
+//Display only even number
+var seq:[Int] = [12,34,44,55,66,33,47]
+for j in 0..<seq.count{
+    if(seq[j] % 2 == 0)
+    {
+        print(seq[j])
+    }
+}
+
+————————————————————————————
+
+//Display only those string whose count > 3
+var cou = ["bkv","optical","fiber"]
+for k in cou
+{
+    if(k.count > 3)
+    {
+        print(k)
+    }
+}
+
+————————————————————————————
+
+//Find Prime Number - not prime number
+var flag = 0
+var num : Int = 54
+for i in 2...num/2{
+    if(num % i == 0)
+    {
+        flag = 1
+        break;
+    }
+}
+if flag == 0{
+    print("\(num) is prime number")
+}else{
+    print("\(num) is not prime number")
+}
+
+————————————————————————————
+
+//Find Odd even number
+var n:[Int] = [12,34,44,55,66,33,47]
+for j in 0..<n.count{
+    if(n[j] % 2 == 0)
+    {
+        print("even number",n[j])
+    }
+    else{
+        print("odd number",n[j])
+    }
+}
+
+————————————————————————————
+
+var greet = "Hello "
+var name = "Jack"
+
+greet.append(name)
+print(greet)
+
+————————————————————————————
+
+// print with terminator space
+print("Good Morning!", terminator: " ")
+
+print("It's rainy today")
+
+print("New Year", 2022, "See you soon!", separator: ". ")
+
+————————————————————————————
+import UIKit
+
+var str1:String = "Dhaval"
+var str2:String = "Nimavat"
+
+print("Hello \nMr.\(str1) \(str2)")
+
+var i = str1.characters.count   
+var j = str2.characters.count
+ 
+if(i>j)
+{
+    print("\(str1) has more string length")
+    
+}
+else if(i<j)
+{
+    print("\(str2) has more string length")
+}
+else
+{
+    print("Both String has same length")
+}
+
+————————————————————————————
+1.     Develop Swift Program to understand String Operation using “LOOP”
+
+import UIKit
+ 
+var str1 = "R.K.U"
+ 
+var len_str1:Int = str1.characters.count
+ 
+print("While Loop:-")
+   while len_str1>0
+{
+    print(str1)
+    len_str1 = len_str1-1
+}
+ 
+print("\nFor Loop:-")
+ 
+for i in 1...str1.characters.count
+{
+print(i)
+}
+————————————————————————————
+2.     Develop Swift program to convert FAHRENHEIT to CELSIUS using  Swift Function without  return values.
+
+import UIKit
+ 
+//FAHRENHEIT to CELSIUS Function
+func ftoc(f:Float)
+{
+    let c = (f-32)/1.8
+    print(c)
+}
+ 
+ 
+//CELSIUS to FAHRENHEIT Function
+func ctof(c:Float)
+{
+ 
+    let f = (c*1.8)+32
+    print(f)
+}
+ 
+//Calling Function
+ 
+ftoc(76.2)
+ 
+ctof(80.2)
+
+————————————————————————————
+
+3. Develop Swift program to convert FAHRENHEIT to CELSIUS using Swift Function with return values.
+
+import UIKit
+ 
+//Fuction with Return Value
+ 
+func ctof(c:Float)->Float
+{
+    let f = (c*1.8)+32
+    return f
+}
+ 
+//Function with Return Value
+ 
+func ftoc(f:Float)->Float
+{
+    let c = (f-32)/1.8
+    return c
+}
+ 
+//Call Function
+ 
+print(ctof(38.4))
+print(ftoc(102.5))
+
+————————————————————————————
+
+1.     Develop Swift program for “Swift Array”, “Swift Dictionary”, “Swift Sets” and “Swift Tuples”
+ 
+Solution:
+ 
+import UIKit
+ 
+//Array String
+print("1.Array String:--")
+var i:[String] = ["RK","University","Rajkot"]
+ 
+print("\(i[0])'s String length is \(i[0].characters.count)")
+print("\(i[1])'s String length is \(i[1].characters.count)")
+print("\(i[2])'s String length is \(i[2].characters.count)")
+ 
+//Array Integer
+print("\n2.Array Integer:---")
+var j:[Int] = [12,23,34,56]
+print(j[0])
+print(j[1])
+print(j[2])
+print(j[3])
+ 
+//Dictionary
+print("\n3. Dictionary:---")
+var id:[Int:String] = [1:"Dhaval",2:"Nimavat",3:"RK"]
+id.updateValue("Shreyas", forKey:1)
+id.updateValue("RKU", forKey: 3)
+print(id[3]!)
+ 
+//Sets
+print("\n4. Sets:---")
+var s1:Set = [10,30,50,70,80]
+var s2:Set = [20,40,60,80]
+print(s1.union(s2).sort())
+print(s1.intersect(s2).sort())
+ 
+ 
+//Tuples
+print("\n5.Tuples:---")
+let employe = (name:"Dhaval",age:32,school:"RKU")
+print(employe.name)
+print(employe.school)
+print(employe.age)
+
+————————————————————————————
+
+//function
+//Simple Function
+func show(name: String) -> String {
+    let n = "Hello, My Name Is " + name
+    return n
+}
+var myname = show(name:"Bhargav")
+print(myname)
+
+————————————————————————————
+
+//Calculator Using the Function
+func cal(a:Int, b:Int) -> (Double,Double,Double,Double){
+    let add = Double(a) + Double(b)
+    let sub = Double(a) - Double(b)
+    let mul = Double(a) * Double(b)
+    let div = Double(a) / Double(b)
+    return (add,sub,mul,div)
+}
+var disply = cal(a:10,b:30)
+//print(disply)
+print("Addition is : ",disply.0)
+print("Subtraction is : ",disply.1)
+print("Multiplication is : ",disply.2)
+print("Division is : ",disply.3)
+
+————————————————————————————
+
+//Gst Calculator
+
+func GST(price:Int) -> (Double,Double,Double)
+{
+    //Gst for 12 %
+    let a = Double(price) + (Double(price)*0.12)
+    //Gst for 18 %
+    let b = Double(price) + (Double(price)*0.18)
+    //Gst for 26 %
+    let c = Double(price) + (Double(price)*0.26)
+    return (a,b,c)
+}
+var resul = GST(price: 100)
+print("With 12% Gst :",resul.0)
+print("With 18% Gst :",resul.1)
+print("With 26% Gst :",resul.2)
+
+————————————————————————————
+
+//Calculate area of diffrent types of shap
+let pi = 3.14
+func area(n1: Int, n2: Int) -> (Double, Double, Double, Double, Double){
+    let aoc = pi * Double(n1) * Double(n2)
+    print("Radius Is \(n1)")
+    
+    let aor = Double(n1 * n2)
+    print("Length Is \(n1) And Breadth Is \(n2)")
+    
+    let aos = Double(n1 * n1)
+    print("Length Of Square Side Is \(n1)")
+    
+    let aot = 0.5 * Double(n1) * Double(n2)
+    print("Base Is \(n1) And Height Is \(n2)")
+    
+    let acone = (pi * Double(n1) * Double(n1)) + (pi * Double(n1) * Double(n2))
+    print("Radius Is \(n1) , Slant Height Is \(n2)")
+    
+    return (aoc, aor, aos, aot, acone)
+}
+var result = area(n1: 10,n2: 15)
+
+print("Area of Circle is :", result.0)
+print("Area of Rectangle is :", result.1)
+print("Area of Square is :", result.2)
+print("Area of Triangle is :", result.3)
+print("Area of Cone is :", result.4)
+
+————————————————————————————
+
+//Factorial using Function
+func factorial(of num: Int) -> Int {
+    if num == 1 {
+        return 1
+    }
+    else {
+        return num * factorial(of:num - 1)
+    }
+}
+
+var res = factorial(of: 6)
+print("Factorial : ", res)
+
+————————————————————————————
+
+//Fibonacci Series Using the Recursion Function
+func fibona(num1: Int) -> Int{
+    if num1 == 0{
+        return 0
+    }
+    else if num1 == 1{
+        return 1
+    }
+    else{
+        return (fibona(num1:num1 - 1) + fibona(num1:num1 - 2))
+    }
+}
+
+var fibonacci = 5
+
+//Using for loop
+for i in 0...fibonacci{
+    print(fibona(num1: i))
+}
+
+//Using While Loop
+var i = 0
+while(fibonacci >= i){
+    print(fibona(num1: i))
+    i += 1
+}
+
+————————————————————————————
+
+//While Loop
+
+//Disply your name in 10 times sequence is 100 to 110
+var count1 = 110
+var j = 100
+while(count1 >= j)
+{
+    print("\(j) bhargav")
+    j += 1
+}
+
+————————————————————————————
+
+//For Loop
+var a1:[Int] = [11,22,33,44]
+print(a1[0])
+for i in 0...a1.count-1
+{
+    print(i,"bhargav")
+    print(a1[i])
+}
+
+————————————————————————————————
+
+————————————————————————————————
+
+import UIKit
+import Security
+
+
+//Dictionaries
+
+//var stud_dic : [String:Any] = ["id":1,"name":"bhargav","salary":20]
+//print(stud_dic)
+//print(stud_dic["name"]!)
+//
+//stud_dic.updateValue("bkv", forKey: "name")
+//stud_dic.removeValue(forKey: "name")
+//stud_dic.updateValue(2, forKey: "salary")
+//print(stud_dic)
+
+————————————————————————————
+
+//Enumeration
+
+//enum Weather
+//{
+//    case rajkot
+//    case pune
+//    case surat
+//}
+//
+//var ch = Weather.rajkot
+//
+//switch (ch)
+//{
+//    case .rajkot :
+//        print("rajkot temprature is 35")
+//    case .pune:
+//        print("pune temprature is 40")
+//    case .surat:
+//        print("surat temprature is 42")
+//}
+//
+//print(ch)
+
+————————————————————————————
+
+//Structure
+//
+//struct stu
+//{
+//    var name : String = ""
+//    var age : Int = 0
+//    var id : Int = 0
+//    var salary : Int = 0
+//}
+//var s1 = stu()
+//s1.name = "bhargav"
+//s1.age = 20
+//s1.id = 1
+//s1.salary = 20000
+//print(s1)
+
+————————————————————————————
+
+//set
+
+//let evens: Set = [10,12,14,16,18]
+//let odds: Set = [5,7,9,11,13]
+//let primes = [2,3,5,7]
+//odds.union(evens).sorted()
+//odds.intersection(evens).sorted()
+//odds.subtracting(primes).sorted()
+
+————————————————————————————
+
+//Tuples
+//let dataProviders = (["name": "Joy"], ["John", "Kelly"], "Joy",  1000, false)
+//print(dataProviders)
+//
+//var values: (dic:[String: Any], array: [String], name: String, number: Int) = (dic: ["name": "Joy"],
+//                array : ["John", "Kelly"],
+//                name: "Joy",
+//                number: 10)
+//print(values)
+
+————————————————————————————
+
+//Pattern
+
+//for i in  0...4{
+//    for j in stride(from: 4, to: i, by: -1){
+//        print( terminator : " ")
+//    }
+//    for k in 0...i{
+//        print(k,terminator : "")
+//    }
+//    print(" ")
+//}
+//Output
+//    0
+//   01
+//  012
+// 0123
+//01234
+
+
+//for i in  0...4{
+//    for j in stride(from: 4, to: i, by: -1){
+//        print( terminator : " ")
+//    }
+//    for k in 0...i{
+//        print("*",terminator : "")
+//    }
+//    print(" ")
+//}
+//Output
+//    *
+//   **
+//  ***
+// ****
+//*****
+
+
+//for i in stride(from: 0, to: 5, by: 1){
+//
+//    for j in stride(from: 5, to: i, by: -1){
+//        print(j , terminator : "")
+//    }
+//    print(" ")
+//
+//}
+//Output
+//54321
+//5432
+//543
+//54
+//5
+
+
+//for i in stride(from: 5, to: 0, by: -1)
+//{
+//
+//    for j in stride(from: 5, to: i-1, by: -1){
+//
+//      print(j , terminator : "")
+//    }
+//    print(" ")
+//}
+//Output
+//5
+//54
+//543
+//5432
+//54321
+
+
+//for i in stride(from: 5, to: 0, by: -1)
+//{
+//    for j in 1...i{
+//        print(j, terminator : "")
+//    }
+//    print(" ")
+//}
+//Output
+//12345
+//1234
+//123
+//12
+//1
+
+
+//var value = 0
+//for i in 1...5 {
+//
+//    for j in 1...i{
+//        value = value + 1
+//        print(value,terminator : "")
+//    }
+//    print(" ")
+//}
+//Output
+//1
+//23
+//456
+//78910
+//1112131415
+
+
+//for i in 1...5{
+//
+//    for j in 1...i{
+//
+//    print(i+1 - j , terminator : "")
+//    }
+//    print(" ")
+//}
+
+//Or
+
+//for i in 1...5{
+//    for j in stride(from: i, to: 0, by: -1){
+//        print(j, terminator : "")
+//    }
+//    print(" ")
+//}
+
+//Output
+//1
+//21
+//321
+//4321
+//54321
+
+
+//var value = 0
+//for i in 1...5{
+//
+//    for j in 1...i{
+//        if j != 1{
+//            value = value + 5
+//        }
+//        else{
+//            value = i
+//        }
+//        print(value , terminator : " ")
+//    }
+//    print(" ")
+//}
+////Output
+//1
+//2 7
+//3 8 13
+//4 9 14 19
+//5 10 15 20 25
+
+
+//for i in 1...5{
+//    var temp = i
+//    for j in 0...i{
+//        print(temp , terminator : " ")
+//        temp = temp + 5
+//    }
+//    print(" ")
+//
+//}
+////Output
+//1 6
+//2 7 12
+//3 8 13 18
+//4 9 14 19 24
+//5 10 15 20 25 30
+
+
+//var value = 1
+//for i in 1...5{
+//
+//    for j in 1...i{
+//         print(j,terminator : "")
+//    }
+//
+//        for k in 1..<i{
+//        print(i-k,terminator : "")
+//    }
+//print(" ")
+//}
+//Output
+//1
+//121
+//12321
+//1234321
+//123454321
+
+
+//for i in stride(from: 5, to: 0, by: -1){
+//    for k in stride(from: 5, to: i, by: -1) {
+//        print(terminator : " ")
+//    }
+//        for j in stride(from: 1, to: i+1, by: 1){
+//           print("*",terminator : " ")
+//    }
+//
+//
+//    print(" ")
+//}
+//Output
+//* * * * *
+// * * * *
+//  * * *
+//   * *
+//    *
+//1 2 3 4 5
+// 1 2 3 4
+//  1 2 3
+//   1 2
+//    1
+
+
+//for i in 1...5{
+//    for k in stride(from: 5, to: i, by: -1) {
+//        print(terminator : " ")
+//    }
+//
+//    for j in 1...i{
+//        print(j,terminator : " ")
+//    }
+//    print(" ")
+//}
+//for i in stride(from: 5, to: 0, by: -1){
+//    for k in stride(from: 5, to: i-1, by: -1) {
+//        print(terminator : " ")
+//    }
+//        for j in stride(from: 1, to: i, by: 1){
+//           print(j,terminator : " ")
+//    }
+//  print(" ")
+//}
+////Output
+//    1
+//   1 2
+//  1 2 3
+// 1 2 3 4
+//1 2 3 4 5
+// 1 2 3 4
+//  1 2 3
+//   1 2
+//    1
+
+
+//for i in 1...5{
+//
+//    for j in stride(from: i, to: 6, by: 1){
+//        print(j , terminator : "")
+//    }
+//
+//    print(" ")
+//}
+//for i in stride(from: 5, to: 0, by: -1)
+//{
+//
+//    for j in stride(from: i, to: 6, by: 1){
+//        print(j,terminator : "")
+//    }
+//    print(" ")
+//}
+//Output
+//12345
+//2345
+//345
+//45
+//5
+//5
+//45
+//345
+//2345
+//12345
+
+
+//for i in 1...5{
+//    for k in 0...i{
+//        print(terminator : " ")
+//    }
+//    for j in stride(from: i, to: 6, by: 1){
+//        print(j , terminator : " ")
+//    }
+//
+//    print(" ")
+//}
+//Output
+//1 2 3 4 5
+// 2 3 4 5
+//  3 4 5
+//   4 5
+//    5
+
+
+//for i in 1...5{
+//    for k in 1...i{
+//        print(terminator : " ")
+//    }
+//    for j in stride(from: i, to: 6, by: 1){
+//        print(j , terminator : "")
+//    }
+//
+//    print(" ")
+//}
+//for i in stride(from: 5, to: 0, by: -1)
+//{
+//    for k in 1...i{
+//        print(terminator : " ")
+//    }
+//    for j in stride(from: i, to: 6, by: 1){
+//        print(j,terminator : "")
+//    }
+//    print(" ")
+//}
+//Output
+//12345
+// 2345
+//  345
+//   45
+//    5
+//    5
+//   45
+//  345
+// 2345
+//12345
+
+
+//for i in 1...5{
+//    for k in 0...i{
+//        print(terminator : " ")
+//    }
+//    for j in stride(from: i, to: 6, by: 1){
+//        print(j , terminator : " ")
+//    }
+//
+//    print(" ")
+//}
+//
+//for i in stride(from: 6, to: 1, by: -1){
+//    for k in 1...i{
+//        print(terminator : " ")
+//    }
+//    for j in stride(from: i-1, to: 6, by: 1){
+//        print(j , terminator : " ")
+//    }
+//
+//    print(" ")
+//}
+//
+//1 2 3 4 5
+// 2 3 4 5
+//  3 4 5
+//   4 5
+//    5
+//    5
+//   4 5
+//  3 4 5
+// 2 3 4 5
+//1 2 3 4 5
+
+
+//for i in 0...4{
+//    for j in 0...i{
+//        if j % 2 == 0{
+//        print(1,terminator : " ")
+//        }
+//        else{
+//            print(0,terminator : " ")
+//        }
+//    }
+//    print(" ")
+//}
+//
+//1
+//1 0
+//1 0 1
+//1 0 1 0
+//1 0 1 0 1
+
+
+//for i in 1...5{
+//    for j in 1...5{
+//
+//        if j == i{
+//            print(j,terminator : " ")
+//        }
+//        else{
+//            print(0,terminator : " ")
+//        }
+//
+//    }
+//    print(" ")
+//}
+//
+//1 0 0 0 0
+//0 2 0 0 0
+//0 0 3 0 0
+//0 0 0 4 0
+//0 0 0 0 5
+
+
+//for i in 1...5
+//{
+//  for _ in 1...i
+//  {
+//     print("*",terminator : "")
+//  }
+//
+//  print("")
+//}
+//for i in 1...4
+//{
+//  for _ in stride (from: 5, to: i, by: -1)
+//  {
+//     print("*",terminator : "")
+//  }
+//
+//  print("")
+//}
+//
+//*
+//**
+//***
+//****
+//*****
+//****
+//***
+//**
+//*
