@@ -129,6 +129,8 @@ import UIKit
 class StudentListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let student_list = ["bhargav”,”nishant”,”truple”]
+    //let imgArr = ["image2","image2","image2"]
+
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return student_list.count
@@ -137,6 +139,7 @@ class StudentListViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell.init(style: .default, reuseIdentifier: "studentCell")
         cell.textLabel?.text = student_list[indexPath.row]
+        //cell.imageView?.image = UIImage(named: imgArr[indexPath.row])
         
         cell.clipsToBounds = true
         cell.layer.cornerRadius = 10
@@ -185,11 +188,155 @@ class ViewController: UIViewController {
         let alert = UIAlertController(title: "Aleart", message: "You have to click button", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "ok", style: .default,handler: nil))
+
+        //alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { _ in
+                    //Cancel Action }))
+
+        alert.addAction(UIAlertAction(title: "Sign out", style: UIAlertAction.Style.destructive,handler: {(_: UIAlertAction!) in
+                                                //Sign out action
+                }))
     
         self.present(alert, animated: true, completion: nil)
     }
 }
 
 
+—————————————————————————————————
 
+**Api Demo**
+
+UIButton
+UIImageview
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var MyImage: UIImageView!
+    @IBOutlet weak var myIndicatorView: UIActivityIndicatorView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        myIndicatorView.isHidden = false
+    }
+
+    @IBAction func submit(_ sender: Any) {
+        dog()
+    }
+    
+    func dog(){
+        let myURL = URL(string: "https://dog.ceo/api/breeds/image/random")
+        var myRequest = URLRequest(url:myURL!)
+        myRequest.httpMethod = "GET"
+        
+        let task = try! URLSession.shared.dataTask(with: myRequest){ (mydata, URLResponse, error) in
+            
+            let jsonData = try! JSONSerialization.jsonObject(with: mydata!) as! [String: Any]
+            
+            let msgData = jsonData["message"] as! String
+            print(msgData)
+            
+            //Image Set
+            DispatchQueue.main.async{
+                let dogUrl = URL(string: msgData)
+                let imgData = try! Data(contentsOf: dogUrl!)
+                self.MyImage.image = UIImage (data: imgData)
+                self.myIndicatorView.isHidden = true
+            }
+            print(msgData)
+        }
+        task.resume()
+    }
+}
+
+—————————————————————————————————
+
+**Picker View**
+
+
+import SwiftUI
+
+
+struct ContentView: View {
+    
+    @State private var countryIndex = 0
+    
+    var countries = ["India","USA","Canada","Aus","Africa","UAE"]
+
+    var body: some View {
+        Section{
+            Picker(selection: $countryIndex, label: Text("Country")) {
+                ForEach(0 ..< countries.count){
+                    Text(self.countries[$0]).tag($0)
+                }
+            }
+        }
+        
+        Section{
+            Picker(selection: $countryIndex, label: Text("Country")) {
+                ForEach(0 ..< countries.count){
+                    Text(self.countries[$0]).tag($0)
+                }
+            }.pickerStyle(WheelPickerStyle())
+        }
+        
+        
+        NavigationView{
+            Form{
+                Section("Color Prafrance"){
+                    Picker(selection: $countryIndex, label: Text("Country")) {
+                        ForEach(0 ..< countries.count){
+                            Text(self.countries[$0]).tag($0)
+                        }
+                    }
+                }
+            }.navigationTitle(Text("Country"))
+        }
+    }
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+
+}
+
+—————————————————————————————————
+
+**Indicator View**
+
+UIButton
+indicator
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    @IBAction func startindicator(_ sender: Any) {
+        indicator.startAnimating()
+
+    }
+    
+    @IBAction func stopindicator(_ sender: Any) {
+        indicator.stopAnimating()
+
+    }
+}
+
+
+
+
+—————————————————————————————————
+
+**CollectionView**
+
+CollectionView
 
