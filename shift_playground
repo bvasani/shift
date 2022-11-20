@@ -1,4 +1,4 @@
-Shift 
+//Shift Program
 
 import UIKit
 import Darwin
@@ -10,7 +10,7 @@ AlertController
 
 —>This three topic is perform in storyboard
 
-//Variable
+//Data Types Variable
 var int: Int = 27
 print(int)
 
@@ -22,6 +22,12 @@ var choice: Bool = true
 
 print("your name is",string)
 print("\(string) has pass with \(double) CGPA.")
+
+var letter: Character = "s"
+print(letter)
+
+let piValue: Float = 3.14
+print(piValue)
 
 ————————————————————————————
 
@@ -112,6 +118,20 @@ for j in 0..<seq.count{
 
 ————————————————————————————
 
+//Find Odd even number
+var n:[Int] = [12,34,44,55,66,33,47]
+for j in 0..<n.count{
+    if(n[j] % 2 == 0)
+    {
+        print("even number",n[j])
+    }
+    else{
+        print("odd number",n[j])
+    }
+}
+
+————————————————————————————
+
 //Display only those string whose count > 3
 var cou = ["bkv","optical","fiber"]
 for k in cou
@@ -142,20 +162,6 @@ if flag == 0{
 
 ————————————————————————————
 
-//Find Odd even number
-var n:[Int] = [12,34,44,55,66,33,47]
-for j in 0..<n.count{
-    if(n[j] % 2 == 0)
-    {
-        print("even number",n[j])
-    }
-    else{
-        print("odd number",n[j])
-    }
-}
-
-————————————————————————————
-
 var greet = "Hello "
 var name = "Jack"
 
@@ -172,6 +178,7 @@ print("It's rainy today")
 print("New Year", 2022, "See you soon!", separator: ". ")
 
 ————————————————————————————
+
 import UIKit
 
 var str1:String = "Dhaval"
@@ -179,70 +186,75 @@ var str2:String = "Nimavat"
 
 print("Hello \nMr.\(str1) \(str2)")
 
-var i = str1.characters.count   
+var i = str1.characters.count
 var j = str2.characters.count
- 
+
 if(i>j)
 {
-    print("\(str1) has more string length")
-    
+    print("\(str1) has more string length")
 }
 else if(i<j)
 {
-    print("\(str2) has more string length")
+    print("\(str2) has more string length")
 }
 else
 {
-    print("Both String has same length")
+    print("Both String has same length")
 }
 
 ————————————————————————————
-1.     Develop Swift Program to understand String Operation using “LOOP”
+
+var i = 1, n = 5
+
+// while loop from i = 1 to 5
+while (i <= n) {
+  print(i)
+   i = i + 1
+}
+
+————————————————————————————
+
+1. Develop Swift Program to understand String Operation using “LOOP”
 
 import UIKit
- 
+
 var str1 = "R.K.U"
- 
 var len_str1:Int = str1.characters.count
- 
+
 print("While Loop:-")
-   while len_str1>0
+while len_str1>0
 {
-    print(str1)
-    len_str1 = len_str1-1
+    print(str1)
+    len_str1 = len_str1-1
 }
- 
+
 print("\nFor Loop:-")
- 
+
 for i in 1...str1.characters.count
 {
 print(i)
 }
 ————————————————————————————
-2.     Develop Swift program to convert FAHRENHEIT to CELSIUS using  Swift Function without  return values.
+2. Develop Swift program to convert FAHRENHEIT to CELSIUS using Swift Function without return values.
 
 import UIKit
- 
+
 //FAHRENHEIT to CELSIUS Function
 func ftoc(f:Float)
 {
-    let c = (f-32)/1.8
-    print(c)
+    let c = (f-32)/1.8
+    print(c)
 }
- 
- 
+
 //CELSIUS to FAHRENHEIT Function
 func ctof(c:Float)
 {
- 
-    let f = (c*1.8)+32
-    print(f)
+    let f = (c*1.8)+32
+    print(f)
 }
- 
+
 //Calling Function
- 
 ftoc(76.2)
- 
 ctof(80.2)
 
 ————————————————————————————
@@ -250,44 +262,44 @@ ctof(80.2)
 3. Develop Swift program to convert FAHRENHEIT to CELSIUS using Swift Function with return values.
 
 import UIKit
- 
+
 //Fuction with Return Value
- 
+
 func ctof(c:Float)->Float
 {
-    let f = (c*1.8)+32
-    return f
+let f = (c*1.8)+32
+    return f
 }
- 
+
 //Function with Return Value
- 
+
 func ftoc(f:Float)->Float
 {
-    let c = (f-32)/1.8
-    return c
+    let c = (f-32)/1.8
+    return c
 }
- 
+
 //Call Function
- 
+
 print(ctof(38.4))
 print(ftoc(102.5))
 
 ————————————————————————————
 
-1.     Develop Swift program for “Swift Array”, “Swift Dictionary”, “Swift Sets” and “Swift Tuples”
- 
+1. Develop Swift program for “Swift Array”, “Swift Dictionary”, “Swift Sets” and “Swift Tuples”
+
 Solution:
- 
+
 import UIKit
- 
+
 //Array String
 print("1.Array String:--")
 var i:[String] = ["RK","University","Rajkot"]
- 
+
 print("\(i[0])'s String length is \(i[0].characters.count)")
 print("\(i[1])'s String length is \(i[1].characters.count)")
 print("\(i[2])'s String length is \(i[2].characters.count)")
- 
+
 //Array Integer
 print("\n2.Array Integer:---")
 var j:[Int] = [12,23,34,56]
@@ -295,22 +307,21 @@ print(j[0])
 print(j[1])
 print(j[2])
 print(j[3])
- 
+
 //Dictionary
 print("\n3. Dictionary:---")
 var id:[Int:String] = [1:"Dhaval",2:"Nimavat",3:"RK"]
 id.updateValue("Shreyas", forKey:1)
 id.updateValue("RKU", forKey: 3)
 print(id[3]!)
- 
+
 //Sets
 print("\n4. Sets:---")
 var s1:Set = [10,30,50,70,80]
 var s2:Set = [20,40,60,80]
 print(s1.union(s2).sort())
 print(s1.intersect(s2).sort())
- 
- 
+
 //Tuples
 print("\n5.Tuples:---")
 let employe = (name:"Dhaval",age:32,school:"RKU")
@@ -331,6 +342,35 @@ print(myname)
 
 ————————————————————————————
 
+//Develop Swift program for calculator using “Switch Case” in XCode
+Solution
+
+import UIKit
+
+var a:Int = 20
+
+var b:Int = 30
+
+let c = 3
+
+switch c
+
+{
+    
+case 1: print("Addition is \(a+b)")
+    
+case 2: print("Subtraction is \(a-b)")
+    
+case 3: print("Multiplication is \(a*b)")
+    
+case 4: print("Division is \(a/b)")
+    
+default: print("Invalid Input")
+    
+}
+
+————————————————————————————
+
 //Calculator Using the Function
 func cal(a:Int, b:Int) -> (Double,Double,Double,Double){
     let add = Double(a) + Double(b)
@@ -340,7 +380,9 @@ func cal(a:Int, b:Int) -> (Double,Double,Double,Double){
     return (add,sub,mul,div)
 }
 var disply = cal(a:10,b:30)
+
 //print(disply)
+
 print("Addition is : ",disply.0)
 print("Subtraction is : ",disply.1)
 print("Multiplication is : ",disply.2)
@@ -548,6 +590,123 @@ import Security
 //                number: 10)
 //print(values)
 
+
+————————————————————————————
+
+//Swift Closure
+
+// declare a closure
+var greet = {
+  print("Hello, World!")
+}
+
+// call the closure
+greet()
+
+————————————————————————————
+
+// closure that accepts one parameter
+let greetUser = { (name: String)  in
+    print("Hey there, \(name).")
+}
+
+// closure call
+greetUser("Delilah")
+
+————————————————————————————
+
+//Closure That Returns Value
+// closure definition
+var findSquare = { (num: Int) -> (Int) in
+  var square = num * num
+  return square
+}
+
+// closure call
+var result = findSquare(3)
+
+print("Square:",result)
+
+————————————————————————————
+
+//Closure as function parameter
+// define a function and pass closure
+func grabLunch(search: ()->()) {
+  print("Let's go out for lunch")
+
+  // closure call
+  search()
+}
+
+// pass closure as a parameter
+grabLunch(search: {
+   print("Alfredo's Pizza: 2 miles away")
+})
+
+————————————————————————————
+
+//Trailing Closure
+func grabLunch(message: String, search: ()->()) {
+   print(message)
+   search()
+}
+
+// use of trailing closure
+grabLunch(message:"Let's go out for lunch")  {
+  print("Alfredo's Pizza: 2 miles away")
+}
+————————————————————————————
+————————————————————————————
+
+//optional
+
+let someValue:Int? = 5
+print(someValue)
+print(someValue!)
+————————————————————————————
+
+var someValue:Int?
+var someAnotherValue:Int! = 0
+        
+if someValue != nil {
+    print("It has some value \(someValue!)")
+} else {
+    print("doesn't contain value")
+}
+        
+if someAnotherValue != nil {
+    print("It has some value \(someAnotherValue!)")
+} else {
+    print("doesn't contain value")
+}
+
+Output:
+doesn't contain value
+It has some value 0
+
+————————————————————————————
+————————————————————————————
+//Getters & Setters
+
+import Foundation
+
+var bagsOfDogFood = 2
+var foodBagSizeInPounds = 30
+
+let cupsPerPound = 4
+let cupsEatenPerDog = 2
+
+var cupsOfDogFood : Int {
+    get {
+        return cupsPerPound * foodBagsizeInPounds * bagsOfDogFood
+    ]
+    set {
+        let amountofDogsFed = newValue / cupsEatenPerDog
+        print ("You can feed \(amountOfDogsFed) dogs with this food")
+    }
+cupsOfDogFood = 30
+
+————————————————————————————
 ————————————————————————————
 
 //Pattern
