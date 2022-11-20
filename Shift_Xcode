@@ -1,4 +1,4 @@
-Shift X-code application
+//Shift Project X-code application
 
 
 **Simple print your name**
@@ -118,6 +118,119 @@ class ViewController: UIViewController, WKUIDelegate {
 
 —————————————————————————————————
 
+**Table View**
+
+-table view
+-->Prototype cell - 1
+-table view cell
+--> proparty 
+style - bacis 
+Identifier - cell
+
+
+import UIKit
+
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+
+    @IBOutlet weak var table: UITableView!
+    
+    var name = ["vsdf","bgf","sdfg"]
+    let imgArr = ["image2","image3","image4"]
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return name.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = name[indexPath.row]
+        cell.imageView?.image = UIImage(named: imgArr[indexPath.row])
+
+        return cell
+    }
+    
+}
+
+—————————————————————————————————
+
+**Custome Table View**
+
+-table view
+-->Prototype cell - 1
+-table view cell
+--> proparty 
+style - bacis 
+Identifier - cell
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var friendView: UITableView!
+    
+    let friends = ["batman", "harsh", "ava", "sasha", "fatima", "alfred"]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        friendView.delegate = self
+        friendView.dataSource = self
+        friendView.allowsSelection = false
+    }
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return friends.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = friendView.dequeueReusableCell(withIdentifier: "customCell") as! CustomCell
+        let friend = friends[indexPath.row]
+        cell.avatarImg.image = UIImage(named: friend)
+        cell.nameLbl.text = friend
+        
+        return cell
+    } 
+}
+
+-----
+
+import UIKit
+
+class CustomCell: UITableViewCell {
+
+    @IBOutlet weak var friendView: UIView!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var avatarImg: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
+}
+
+
+—————————————————————————————————
+
 **Tabbar + navigation + Table View**
 
 -Tab Bar Controller
@@ -168,7 +281,7 @@ class StudentListViewController: UIViewController, UITableViewDelegate, UITableV
 
 —————————————————————————————————
 
-**Alert Dialog Box **
+**Alert Dialog Box**
 
 -Button
 
@@ -186,12 +299,12 @@ class ViewController: UIViewController {
 
     func showAleart(){
         let alert = UIAlertController(title: "Aleart", message: "You have to click button", preferredStyle: .alert)
+//        let alert = UIAlertController(title: "Aleart", message: "You have to click button", preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "ok", style: .default,handler: nil))
-
-        //alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { _ in
-                    //Cancel Action }))
-
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { _ in
+//            Cancel Action
+        }))
         alert.addAction(UIAlertAction(title: "Sign out", style: UIAlertAction.Style.destructive,handler: {(_: UIAlertAction!) in
                                                 //Sign out action
                 }))
@@ -346,14 +459,6 @@ CollectionView
 
 -->Table view
 
-//
-//  ViewController.swift
-//  DBDemo
-//
-//  Created by Bilal Hassan on 23/5/19.
-//  Copyright © 2019 Bilal Hassan. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
@@ -404,7 +509,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 }
 
 -------
-
+**DBHelper
 
 import Foundation
 import SQLite3
@@ -526,6 +631,7 @@ class DBHelper
 }
 
 ------
+**Person
 
 import Foundation
 
@@ -617,3 +723,34 @@ class LandingPageViewController:UIViewController{
         }
     }
         
+—————————————————————————————————
+
+**Map View**
+
+-->map kit view
+
+import UIKit
+import MapKit
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var mapView: MKMapView!
+    let location = CLLocation(latitude: 22.240764, longitude: 70.901284)
+         
+       let region_radious = 10000
+         
+       override func viewDidLoad() {
+           super.viewDidLoad()
+           // Do any additional setup after loading the view.
+           centreMap(location: location)
+             
+       }
+         
+       func centreMap(location: CLLocation){
+           let region = MKCoordinateRegion(center: location.coordinate,latitudinalMeters: CLLocationDistance(region_radious), longitudinalMeters: CLLocationDistance(region_radious))
+           mapView.setRegion(region, animated: true)
+             
+       }
+}
+
+—————————————————————————————————
